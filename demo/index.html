@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>contact-compounent demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+		<link rel="import" href="../contact-compounent.html">
+		<link rel="import" href="../../paper-toast/paper-toast.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic contact-compounent demo</h3>
+      <demo-snippet>
+        <template>
+					<contact-compounent></contact-compounent>
+					<paper-toast id="toast"></paper-toast>
+        </template>
+        <script>
+			 let element = document.querySelector('contact-compounent');
+			 console.log(element)
+			  element.users=[
+				{
+				  firstName: 'David ',
+				  lastName: 'silvestre',
+				  age: 19,
+				  birthday:'01/09/95',
+				  email:'david@gmail.com',
+				  image: 'http://1.bp.blogspot.com/-AlMy6MLjjKc/VYxF-aM_QzI/AAAAAAAAAZc/2tM50UEcD8k/s1600/myAvatar.png',
+				  status: 'on'
+				},
+				{
+				  firstName: 'Edgar',
+				  lastName: 'checolino',
+				  age: 20,
+				  birthday:'01/09/95',
+				  email:'edgar@gmail.com',
+				  image: 'http://1.bp.blogspot.com/-AlMy6MLjjKc/VYxF-aM_QzI/AAAAAAAAAZc/2tM50UEcD8k/s1600/myAvatar.png',
+				  status: 'off'
+				},
+				{
+				  firstName: 'Edgar',
+				  lastName: 'checolino',
+				  age: 20,
+				  birthday:'01/09/95',
+				  email:'edgar@gmail.com',
+				  image: 'http://1.bp.blogspot.com/-AlMy6MLjjKc/VYxF-aM_QzI/AAAAAAAAAZc/2tM50UEcD8k/s1600/myAvatar.png',
+				  status: 'on'
+				},
+				{
+				  firstName: 'Edgar',
+				  lastName: 'checolino',
+				  age: 20,
+				  birthday:'01/09/95',
+				  email:'edgar@gmail.com',
+				  image: 'http://1.bp.blogspot.com/-AlMy6MLjjKc/VYxF-aM_QzI/AAAAAAAAAZc/2tM50UEcD8k/s1600/myAvatar.png',
+				  status: 'off'
+				}
+			  ];
+			  element.addEventListener('user-selected', event => {
+				const user = event.detail;
+				const toast = document.querySelector('#toast');
+				toast.text = JSON.stringify({
+				  event: event.type,
+				  data: user
+				});
+				toast.show();
+			  });
+		</script>
+      </demo-snippet>
+    </div>
+  </body>
+</html>
